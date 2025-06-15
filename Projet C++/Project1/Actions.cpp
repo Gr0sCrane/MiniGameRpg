@@ -16,7 +16,7 @@ void player_attack(double damage, Player target) {
 	target.hp -= damage;
 }
 
-void player_attack(double damage, Mob target) {
+void mob_attack(double damage, Mob target) {
 	target.hp -= damage;
 }
 
