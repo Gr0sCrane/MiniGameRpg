@@ -66,6 +66,10 @@ static void MoveDown(Entity* entity, Board& board) {
 	board.setEntity(newX, newY, entity);
 }
 
+void keyboardInput() {
+	1 + 1; //TODO faire les inputs de Clavier (ça va etre long)
+}
+
 
 
 void run() {
