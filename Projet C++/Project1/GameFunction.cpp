@@ -1,14 +1,16 @@
 #include <iostream>
 #include "GameBoard.cpp"
 
-void Info(Player* player, std::array<int, 2> position) {
+static void Info(Player* player, std::array<int, 2> position) {
 	std::cout << "Player is at position: (" << position[0] << ", " << position[1] << ")" << std::endl;
 	std::cout << "Player HP: " << player->getHp() << std::endl;
 	std::cout << "Player Attack: " << player->getAttack() << std::endl;
 	std::cout << "Player Defense: " << player->getDefense() << std::endl;
+	player->listInventory();
+	player->displayXp();
 }
 
-void MoveRight(Entity* entity, Board& board) {
+static void MoveRight(Entity* entity, Board& board) {
 	auto pos = entity->getPosition();
 	int newX = pos[0];
 	int newY = pos[1] + 1;
@@ -22,7 +24,7 @@ void MoveRight(Entity* entity, Board& board) {
 	board.setEntity(newX, newY, entity);
 }
 
-void MoveLeft(Entity* entity, Board& board) {
+static void MoveLeft(Entity* entity, Board& board) {
 	auto pos = entity->getPosition();
 	int newX = pos[0];
 	int newY = pos[1] - 1;
@@ -36,7 +38,7 @@ void MoveLeft(Entity* entity, Board& board) {
 	board.setEntity(newX, newY, entity);
 }
 
-void MoveUp(Entity* entity, Board& board) {
+static void MoveUp(Entity* entity, Board& board) {
 	auto pos = entity->getPosition();
 	int newX = pos[0] - 1;
 	int newY = pos[1];
@@ -50,7 +52,7 @@ void MoveUp(Entity* entity, Board& board) {
 	board.setEntity(newX, newY, entity);
 }
 
-void MoveDown(Entity* entity, Board& board) {
+static void MoveDown(Entity* entity, Board& board) {
 	auto pos = entity->getPosition();
 	int newX = pos[0] + 1;
 	int newY = pos[1];
@@ -77,7 +79,6 @@ void run() {
 	board.setEntity(BOARD_SIZE/2, BOARD_SIZE/2, player);
 	auto position = player->getPosition();
 	DisplayBoard(board);
-	Info(player, position);
 	player->addItem(std::move(item));
-	player->listInventory();
+	Info(player, position);
 }

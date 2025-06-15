@@ -67,19 +67,30 @@ private:
 	double defense;
 	std::vector<std::unique_ptr<Item>> inventory; // Assuming Item is a class defined elsewhere
 	static constexpr size_t INVENTORY_SIZE = 5;
+	int xp = 0;
+	int level = 1;
 public:
 	Player() : Entity(EntityType::PLAYER,100, 10,{0,0}), defense(5) {} // Default constructor
 	Player(double hp, double attack, double defense,std::array<int,2> pos) : Entity(EntityType::PLAYER,hp, attack,pos),
 		defense(defense) {} // Parameterized constructor
 	double getDefense() const { return defense; }
+	int getXp() const { return xp; }
+	void setXp(int newXp) {
+		if (newXp < 0) {
+			std::cerr << "XP cannot be negative. Setting to 0." << std::endl;
+			newXp = 0;
+		}
+		xp = newXp;
+	}
 	void setDefense(double newDefense) { 
 		if (newDefense < 0) {
 			std::cerr << "Defense cannot be negative. Setting to 0." << std::endl;
 			newDefense = 0;
 		}
-		defense = newDefense; }
+		defense = newDefense; 
+	}
 
-	void listInventory() const {
+	void listInventory() {
 		std::cout << "Inventory: " << std::endl;
 		for (const auto& item : inventory) {
 			std::cout << "- " << item->getName() << std::endl;
@@ -94,6 +105,45 @@ public:
 			std::cerr << "Inventory is full. Cannot add more items." << std::endl;
 		}
 	}
+
+	void removeItem(const std::string& itemName) {
+		auto it = std::remove_if(inventory.begin(), inventory.end(),
+			[&itemName](const std::unique_ptr<Item>& item) { return item->getName() == itemName; });
+		if (it != inventory.end()) {
+			inventory.erase(it, inventory.end());
+		}
+		else {
+			std::cerr << "Item not found in inventory." << std::endl;
+		}
+	}
+
+	int getLevel() const {
+		return level;
+	}
+
+	void setLevel(int newLevel) {
+		if (newLevel < 0) {
+			std::cerr << "Level cannot be negative. Setting to 0." << std::endl;
+			newLevel = 0;
+		}
+		level = newLevel;
+	}
+
+	void displayXp() {
+		char xpBar[10] = {' ',' ',' ',' ',' ',' ',' ',' ',' ',' '};
+		int length = sizeof(xpBar) / sizeof(xpBar[0]);
+		for (int i = 0; i < xp; i++) {
+			if (i >= length) break; // Prevent overflow
+			xpBar[i] = '*';
+		}
+		std::cout << "XP: " << xp << " | Level: " << level << std::endl;
+		std::cout << "XP Bar: ";
+		for (int i = 0; i < length; i++) {
+			std::cout << xpBar[i];
+		}
+		std::cout << std::endl;
+	}
+
 };
 
 class Mob : public Entity {

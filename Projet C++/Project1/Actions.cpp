@@ -1,5 +1,4 @@
 #include <iostream>
-#include <random>
 #include "Entity.cpp"
 
 const double FULLHP = 100.0;

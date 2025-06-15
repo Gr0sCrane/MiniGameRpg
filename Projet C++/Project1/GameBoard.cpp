@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Actions.cpp"
 
 // Ce fichier va generer le plateau de jeu
 
