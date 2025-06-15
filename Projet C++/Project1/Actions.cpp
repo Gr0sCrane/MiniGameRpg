@@ -4,7 +4,7 @@
 
 const double FULLHP = 100.0;
 
-void attack(double damage, Player target) {
+void player_attack(double damage, Player target) {
 
 	double EffectiveDamage = damage - (target.getDefense() / 100.0);
 
@@ -16,7 +16,7 @@ void attack(double damage, Player target) {
 	target.hp -= damage;
 }
 
-void attack(double damage, Mob target) {
+void player_attack(double damage, Mob target) {
 	target.hp -= damage;
 }
 
