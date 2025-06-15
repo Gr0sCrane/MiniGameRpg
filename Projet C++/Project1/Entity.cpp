@@ -34,13 +34,13 @@ class Entity {
 private:
 	EntityType type;
 	double attack;
+	double hp;
 	std::array<int,2> Position; // Assuming Position is an array of two integers for x and y coordinates
 public:
 	Entity(EntityType t, double hp, double attack, std::array<int,2> pos) : 
 		type(t), hp(hp), attack(attack), Position(pos){}
-	double hp;
-	double getHp() const { return hp; }
-	double getAttack() const { return attack; }
+	double getHp() { return hp; }
+	double getAttack() { return attack; }
 	void setHp(double newHp) { hp = newHp; }
 	void setAttack(double newAttack) { attack = newAttack;}
 

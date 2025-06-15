@@ -12,16 +12,16 @@ void player_attack(double damage, Player target) {
 	else
 		damage = EffectiveDamage;
 
-	target.hp -= damage;
+	target.setHp(target.getHp() - damage);
 }
 
 void mob_attack(double damage, Mob target) {
-	target.hp -= damage;
+	target.setHp(target.getHp() - damage);
 }
 
 void GetHealth(double heal, Entity target) {
 	if (heal > 0) {
-		target.hp += heal;
+		target.setHp(target.getHp() + heal);
 	}
 	else
 	{
@@ -30,5 +30,5 @@ void GetHealth(double heal, Entity target) {
 }
 
 void GetFullHp(Entity target) {
-	target.hp = FULLHP;
+	target.setHp(FULLHP);
 }
