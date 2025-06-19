@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Actions.cpp"
+#include "raylib.h"
+
 
 // Ce fichier va generer le plateau de jeu
 
@@ -9,6 +11,9 @@ const char letter[20] = {
 	'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'
 };
 const int BOARD_SIZE = 20;
+const int TILE_SIZE = 32;
+const int SCREEN_WIDTH = BOARD_SIZE * TILE_SIZE;
+const int SCREEN_HEIGHT = BOARD_SIZE * TILE_SIZE;
 //********************************************************
 
 class Board {
@@ -51,10 +56,11 @@ public:
 		if (x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE) {
 			return board[x][y]->getType();
 		}
-		return EntityType::VOID;
+		return EntityType::VIDE;
 	}
 
 };
+
 
 void DisplayLetter() {
 	for (int i = 0; i < 20; ++i) {
@@ -64,25 +70,48 @@ void DisplayLetter() {
 }
 
 void DisplayBoard(Board& board) {
-	int count = 0;
+
 	std::cout << "This is the game board" << std::endl;
 	std::cout << "------------------------" << std::endl;
 	DisplayLetter();
+
 	for (int i = 0; i < BOARD_SIZE; ++i) {
 		for (int j = 0; j < BOARD_SIZE; ++j) {
 			switch (board.getEntityType(i, j)) {
-			case EntityType::VOID:   
+			case EntityType::VIDE:
 				std::cout << "[ ]"; break;
-			case EntityType::PLAYER: 
+			case EntityType::PLAYER:
 				std::cout << "|P|"; break;
-			case EntityType::MOB:    
+			case EntityType::MOB:
 				std::cout << "|M|"; break;
-			default:                
+			default:
 				std::cout << "[?]"; break;
 			}
 		}
-		std::cout << count;
-		std::cout<<std::endl;
-		count++;
+		std::cout << i << std::endl;
 	}
 }
+
+void DrawBoard(Board& board) {
+	for (int x = 0; x < BOARD_SIZE; x++) {
+		for (int y = 0; y < BOARD_SIZE; y++) {
+			Rectangle cell = { y * 30, x * 30, 30, 30 };
+			Color color;
+
+			switch (board.getEntityType(x, y)) {
+			case EntityType::VIDE:
+				color = LIGHTGRAY; break;
+			case EntityType::PLAYER:
+				color = BLUE; break;
+			case EntityType::MOB:
+				color = RED; break;
+			default:
+				color = BLACK; break;
+			}
+
+			DrawRectangleRec(cell, color);
+			DrawRectangleLinesEx(cell, 1, DARKGRAY); // pour les contours
+		}
+	}
+}
+

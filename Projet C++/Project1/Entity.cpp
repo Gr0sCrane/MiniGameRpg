@@ -5,7 +5,7 @@
 enum class EntityType {
 	PLAYER,
 	MOB,
-	VOID
+	VIDE
 };
 
 enum class ItemType {
@@ -155,7 +155,7 @@ public:
 class Void : public Entity {
 public:
 	explicit Void(const std::array<int, 2>& pos = { 0, 0 })
-		: Entity(EntityType::VOID, 0, 0, pos) {}
+		: Entity(EntityType::VIDE, 0, 0, pos) {}
 };
 
 class Heal : public Item {
