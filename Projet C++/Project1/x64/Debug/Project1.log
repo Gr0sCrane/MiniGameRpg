@@ -1,3 +1,6 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: Le répertoire intermédiaire (x64\Debug\) contient des fichiers partagés provenant d'un autre projet (Project1.vcxproj). Cela peut entraîner un comportement de nettoyage et de regénération incorrect.
   Main.cpp
-  Project1.vcxproj -> C:\Users\mouad\OneDrive\Desktop\Projet C++\Project1\x64\Debug\GameRpg.exe
+  LINK : C:\Users\mouad\source\repos\Gr0sCrane\MiniGameRpg\Projet C++\Project1\x64\Debug\GameRpg.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
+  Project1.vcxproj -> C:\Users\mouad\source\repos\Gr0sCrane\MiniGameRpg\Projet C++\Project1\x64\Debug\GameRpg.exe
+  'pwsh.exe' n'est pas reconnu en tant que commande interne
+  ou externe, un programme exécutable ou un fichier de commandes.

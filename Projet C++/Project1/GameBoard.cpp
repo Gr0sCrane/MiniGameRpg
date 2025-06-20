@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Actions.cpp"
-#include "raylib.h"
 
 
 // Ce fichier va generer le plateau de jeu
@@ -92,26 +91,5 @@ void DisplayBoard(Board& board) {
 	}
 }
 
-void DrawBoard(Board& board) {
-	for (int x = 0; x < BOARD_SIZE; x++) {
-		for (int y = 0; y < BOARD_SIZE; y++) {
-			Rectangle cell = { y * 30, x * 30, 30, 30 };
-			Color color;
 
-			switch (board.getEntityType(x, y)) {
-			case EntityType::VIDE:
-				color = LIGHTGRAY; break;
-			case EntityType::PLAYER:
-				color = BLUE; break;
-			case EntityType::MOB:
-				color = RED; break;
-			default:
-				color = BLACK; break;
-			}
-
-			DrawRectangleRec(cell, color);
-			DrawRectangleLinesEx(cell, 1, DARKGRAY); // pour les contours
-		}
-	}
-}
 
