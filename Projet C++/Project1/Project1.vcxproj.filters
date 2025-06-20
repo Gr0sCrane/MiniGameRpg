@@ -32,5 +32,45 @@
     <ClCompile Include="Main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="src\Actions.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameBoard.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameFunction.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SDL3\SDL3.dll" />
+    <None Include="x64\Debug\vc143.idb" />
+    <None Include="x64\Debug\vc143.pdb" />
+    <None Include="Debug\GameRpg.exe.recipe" />
+    <None Include="Debug\vc143.idb" />
+    <None Include="Debug\vc143.pdb" />
+    <None Include="Debug\GameRpg.tlog\CL.command.1.tlog" />
+    <None Include="Debug\GameRpg.tlog\GameRpg.lastbuildstate" />
+    <None Include="Debug\GameRpg.tlog\unsuccessfulbuild" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="x64\Debug\GameRpg.Build.CppClean.log" />
+    <Text Include="x64\Debug\Project1.log" />
+    <Text Include="x64\Debug\Project1.vcxproj.FileListAbsolute.txt" />
+    <Text Include="Debug\GameRpg.Build.CppClean.log" />
+    <Text Include="Debug\Project1.vcxproj.FileListAbsolute.txt" />
+    <Text Include="Debug\vcpkg.applocal.log" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="x64\Debug\Main.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="SDL3\lib\SDL3.lib" />
   </ItemGroup>
 </Project>

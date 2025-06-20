@@ -1,6 +1,11 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: Le répertoire intermédiaire (x64\Debug\) contient des fichiers partagés provenant d'un autre projet (Project1.vcxproj). Cela peut entraîner un comportement de nettoyage et de regénération incorrect.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1119,5): warning MSB8027: Deux ou plusieurs fichiers avec le nom Main.cpp généreront des sorties vers le même emplacement. Cela peut entraîner une génération incorrecte. Les fichiers impliqués sont Main.cpp, src\Main.cpp.
   Main.cpp
-  LINK : C:\Users\mouad\source\repos\Gr0sCrane\MiniGameRpg\Projet C++\Project1\x64\Debug\GameRpg.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
-  Project1.vcxproj -> C:\Users\mouad\source\repos\Gr0sCrane\MiniGameRpg\Projet C++\Project1\x64\Debug\GameRpg.exe
-  'pwsh.exe' n'est pas reconnu en tant que commande interne
-  ou externe, un programme exécutable ou un fichier de commandes.
+/Main.cpp(1,1): error C1083: Impossible d'ouvrir le fichier source : 'Main.cpp' : No such file or directory
+  (compiler le fichier source '/Main.cpp')
+  
+  Actions.cpp
+  Entity.cpp
+  GameBoard.cpp
+  GameFunction.cpp
+  Main.cpp
+  Génération de code en cours...
